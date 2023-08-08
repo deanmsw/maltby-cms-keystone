@@ -17,20 +17,15 @@ dotenv.config()
 
 
 export default config({
-    db: { provider: 'sqlite', url: 'file:./app.db' },
-  experimental: {
-    generateNextGraphqlAPI: true,
-  },
-  // db: {
-  //   provider: 'postgresql',
-  //   url: `${process.env.DATABASE_URL}`,
-  //   onConnect: async (context) => { },
-  //   // Optional advanced configuration
-  //   enableLogging: true,
-  //   idField: { kind: 'uuid' },
-  //   shadowDatabaseUrl: 'postgres://deanscotthorne:chicken@localhost:5432/shadowdb'
+  db: {
+    provider: 'mysql',
+    url: `${process.env.DATABASE_URL}`,
+    onConnect: async (context) => { },
+    // Optional advanced configuration
+    enableLogging: true,
+    idField: { kind: 'uuid' },
  
-  // },
+  },
      server: {
       cors: { origin: [`${process.env.ORIGIN}`], credentials: true },
       port: Number(process.env.PORT),
